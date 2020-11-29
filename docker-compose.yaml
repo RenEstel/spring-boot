@@ -7,12 +7,12 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - content
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://content/content
-  content:
+      - db
+    env_file:
+      - database.env # configure app
+  db:
     image: "postgres" # use latest official postgres version
-    container_name: content
+    container_name: db
     env_file:
       - database.env # configure postgres
     volumes:
