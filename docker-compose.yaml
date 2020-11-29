@@ -1,5 +1,15 @@
 version: '2.1'
 services:
+  app:
+    container_name: demo
+    image: renestel/demo
+    build: ./
+    ports:
+      - 8080:8080
+    depends_on:
+      - content
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://content/content
   content:
     image: "postgres" # use latest official postgres version
     container_name: content

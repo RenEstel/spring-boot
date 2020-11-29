@@ -1,5 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/content
+#    url: jdbc:postgresql://localhost:5432/content
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost/content}
     username: content
     password: content
